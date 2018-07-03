@@ -1,8 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>xamarin.ios10;monoandroid80</TargetFrameworks>
+    <VersionPrefix>99.99.99.99</VersionPrefix>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Pattern.Core.Interfaces" Version="1.4.0-unstable0010" />
     <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="all" />
     <PackageReference Include="Newtonsoft.Json" Version="8.0.3" />
   </ItemGroup>
@@ -15,8 +18,5 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='monoandroid80'">
     <Compile Include="platform\android\**\*.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pattern.Core.Interfaces\Pattern.Core.Interfaces.csproj" />
   </ItemGroup>
 </Project>
