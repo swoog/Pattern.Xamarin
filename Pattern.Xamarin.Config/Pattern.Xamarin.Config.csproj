@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>xamarin.ios10;monoandroid80</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="all" />
+    <PackageReference Include="Newtonsoft.Json" Version="8.0.3" />
+  </ItemGroup>
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+  <ItemGroup>
+    <Compile Remove="platform\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='xamarin.ios10'">
+    <Compile Include="platform\ios\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='monoandroid80'">
+    <Compile Include="platform\android\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pattern.Core.Interfaces\Pattern.Core.Interfaces.csproj" />
+  </ItemGroup>
+</Project>
