@@ -3,7 +3,7 @@ using Android.Content;
 
 namespace Pattern.Xamarin.Config.platform.android
 {
-    public class ConfigReader<T> : AbstractConfigReader<T>
+    public class ConfigReader : AbstractConfigReader
     {        
         private readonly Context _context;
 

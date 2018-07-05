@@ -4,7 +4,7 @@ using Pattern.Core.Interfaces;
 
 namespace Pattern.Xamarin.Config
 {
-    public abstract class AbstractConfigReader<T> : IFactory
+    public abstract class AbstractConfigReader : IFactory
     {
         public string Filename { get; set; }
         
@@ -13,7 +13,7 @@ namespace Pattern.Xamarin.Config
             using (var streamReader = GetStream(this.Filename))
             {
                 var configFileString = streamReader.ReadToEnd();
-                return JsonConvert.DeserializeObject(configFileString, typeof(T));
+                return JsonConvert.DeserializeObject(configFileString, callContext.InstanciatedType);
             }            
         }
         

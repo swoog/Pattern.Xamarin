@@ -2,7 +2,7 @@
 
 namespace Pattern.Xamarin.Config.platform.ios
 {
-    public class ConfigReader<T> : AbstractConfigReader<T>
+    public class ConfigReader : AbstractConfigReader
     {
         protected override StreamReader GetStream(string filename)
         {
